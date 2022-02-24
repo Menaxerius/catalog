@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/ubooquity
   pullPolicy: IfNotPresent
-  tag: v2.1.2
+  tag: v2.1.3
 
 securityContext:
   runAsNonRoot: false
@@ -19,7 +19,13 @@ service:
       main:
         targetPort: 2202
         port: 2202
-
+  admin:
+    enabled: true
+    ports:
+      admin:
+        enabled: true
+        port: 2203
+        targetPort: 2203 
 persistence:
   varrun:
     enabled: true
